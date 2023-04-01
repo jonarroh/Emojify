@@ -57,7 +57,8 @@ fn main() {
     //Option to continue or cancel the commit
     let confirm = dialoguer::Confirm::with_theme(&binding)
         .with_prompt("Do you want to continue?")
-        .default("y".parse().unwrap())
+        .default(true)
+        .show_default(true)
         .interact()
         .unwrap();
 
