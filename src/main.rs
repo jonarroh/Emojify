@@ -50,8 +50,17 @@ fn main() {
         .collect::<String>();
 
     // Print the user's input for the commit and execute the commit command
+    println!("The commit will be: ");
     println!("{} ({}) {}", options[selection], scopes, message);
 
+    //Option to continue or cancel the commit
+    let confirm = dialoguer::Confirm::with_theme(&binding)
+        .with_prompt("Do you want to continue?")
+        .interact()
+        .unwrap();
+
+    // If the user confirms the commit, execute the git commit command
+    if confirm {
     // Execute the git commit command
     std::process::Command::new("git")
         .arg("commit")
@@ -59,4 +68,7 @@ fn main() {
         .arg(format!("{} ({}) {}", options[selection], scopes, message))
         .output()
         .expect("failed to execute process");
+    } else {
+        println!("Commit canceled");
+    }
     }
