@@ -47,4 +47,9 @@ The commit will be:
 
 Do you want to continue? (y/n)
 > y
+
+Do you want to push? (y/n)
+> y
+
+Pushed to main
 ```
