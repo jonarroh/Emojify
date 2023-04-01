@@ -98,6 +98,8 @@ fn main() {
             .arg(branch)
             .output()
             .expect("failed to execute process");
+
+        println!("Pushed to {}", branch);
     } else {
         println!("Push canceled");
     }
