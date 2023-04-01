@@ -1,4 +1,5 @@
 use dialoguer::{theme::ColorfulTheme, Select};
+
 fn main() {
     // Define an array of commit options
     let options = &[
@@ -71,4 +72,4 @@ fn main() {
     } else {
         println!("Commit canceled");
     }
-    }
+}

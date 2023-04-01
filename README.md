@@ -13,6 +13,10 @@ Emojify is a simple command line tool to conventional commit messages with emoji
 2. Ejecuta cargo build --release
 3. Copy the binary to a directory in your PATH
 
+```bash
+$ cp target/release/emojify /usr/local/bin
+```
+
 ## Usage
 
 To use emojify, you must be in a git repository. Then, you can run the command:
