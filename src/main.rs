@@ -74,4 +74,31 @@ fn main() {
     } else {
         println!("Commit canceled");
     }
+
+    //confirm push
+    let confirm = dialoguer::Confirm::with_theme(&binding)
+        .with_prompt("Do you want to push?")
+        .default(true)
+        .show_default(true)
+        .interact()
+        .unwrap();
+    if confirm {
+        //know the branch default main
+        let branch = std::process::Command::new("git")
+            .arg("branch")
+            .arg("--show-current")
+            .output()
+            .expect("failed to execute process");
+        let branch = String::from_utf8_lossy(&branch.stdout);
+        let branch = branch.trim();
+        // Execute the git push command
+        std::process::Command::new("git")
+            .arg("push")
+            .arg("origin")
+            .arg(branch)
+            .output()
+            .expect("failed to execute process");
+    } else {
+        println!("Push canceled");
+    }
 }
