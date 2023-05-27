@@ -181,16 +181,16 @@ fn init() {
         .with_prompt("Ingrese la url del repositorio remoto")
         .interact()
         .unwrap();
+    print!("{}", remote);
 
     if remote != "" {
-        let a = std::process::Command::new("git")
+        std::process::Command::new("git")
             .arg("remote")
             .arg("add")
             .arg("origin")
             .arg(remote)
             .output()
             .expect("error al agregar el repositorio remoto");
-        println!("{}", String::from_utf8_lossy(&a.stdout));
     }
 
     println!("Repositorio inicializado correctamente");
