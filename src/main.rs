@@ -191,6 +191,14 @@ fn init() {
             .arg(remote)
             .output()
             .expect("error al agregar el repositorio remoto");
+
+        std::process::Command::new("git")
+            .arg("push")
+            .arg("-u")
+            .arg("origin")
+            .arg("main")
+            .output()
+            .expect("error al hacer el primer push");
     }
 
     println!("Repositorio inicializado correctamente");
